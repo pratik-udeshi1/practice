@@ -70,14 +70,14 @@ if __name__ == "__main__":
     plt.xlabel('Date')
     plt.ylabel('Count')
     plt.legend()
-    plt.show()
+    # plt.show()
 
     # Visualization 2: Weekly user engagement bar chart
     weekly_user_engagement.plot(kind='bar', x='User', y=['Likes', 'Comments'], stacked=True)
     plt.title('Weekly User Engagement')
     plt.xlabel('User')
     plt.ylabel('Count')
-    plt.show()
+    # plt.show()
 
     most_active_users.plot(kind='bar', y=['Likes', 'Comments'], stacked=True, color=['seagreen', 'lightgreen'])
     plt.title('Most Active Users with Likes and Comments')
