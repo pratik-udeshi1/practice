@@ -41,7 +41,7 @@ def weekly_user_engagement_analysis(df):
 
 def most_active_users_analysis(df):
     """Identify the most active users."""
-    return df.groupby('User').size().sort_values(ascending=False)[:5]
+    return df.groupby('User').agg({'Likes': 'sum', 'Comments': 'sum'}).sort_values(by='Likes', ascending=False)[:5]
 
 
 # Main execution
@@ -75,6 +75,12 @@ if __name__ == "__main__":
     # Visualization 2: Weekly user engagement bar chart
     weekly_user_engagement.plot(kind='bar', x='User', y=['Likes', 'Comments'], stacked=True)
     plt.title('Weekly User Engagement')
+    plt.xlabel('User')
+    plt.ylabel('Count')
+    plt.show()
+
+    most_active_users.plot(kind='bar', y=['Likes', 'Comments'], stacked=True, color=['seagreen', 'lightgreen'])
+    plt.title('Most Active Users with Likes and Comments')
     plt.xlabel('User')
     plt.ylabel('Count')
     plt.show()
